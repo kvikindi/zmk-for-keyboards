@@ -35,6 +35,13 @@
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
         };
+
+        moose: moose {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            label = "MOOSE";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+        };
     };
 
     combos {
@@ -67,16 +74,14 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESCAPE  &kp N1  &kp N2    &kp N3        &kp N4            &kp N5                                    &kp N6     &kp N7             &kp N8     &kp N9    &kp N0    &none
+&kp ESCAPE  &kp N1  &kp N2    &kp N3        &kp N4            &kp N5                                    &kp N6     &kp N7             &kp N8     &kp N9    &kp N0    &kp MINUS
 &kp TAB     &kp Q   &kp W     &kp E         &kp R             &kp T                                     &kp Y      &kp U              &kp I      &kp O     &kp P     &kp BSPC
 &kp LSHIFT  &kp A   &kp S     &kp D         &kp F             &kp G                                     &kp H      &kp J              &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LCTRL   &kp Z   &kp X     &kp C         &kp V             &kp B      &kp C_MUTE    &rgb_ug RGB_TOG  &kp N      &kp M              &kp COMMA  &kp DOT   &kp FSLH  &kp ENTER
                     &kp LALT  &kp LEFT_GUI  &kp LEFT_BRACKET  &mo LOWER  &kp SPACE     &kp SPACE        &mo RAISE  &kp RIGHT_BRACKET  &kp RALT   &kp BSPC
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&encoder_scroll>;
+            sensor-bindings = <&moose SCRL_DOWN SCRL_UP>, <&encoder_scroll>;
         };
 
         lower_layer {
