@@ -37,6 +37,24 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        AltF4 {
+            bindings = <&altf4macro>;
+            key-positions = <50 4>;
+        };
+    };
+
+    macros {
+        altf4macro: altf4macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT &kp F4>;
+            label = "ALTF4MACRO";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
